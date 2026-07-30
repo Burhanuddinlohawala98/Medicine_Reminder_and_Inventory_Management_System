@@ -28,3 +28,14 @@ def add_medicine():
         "medicine_timings": medicine_time
 
     }
+
+def delete_medicine(medicine_list):
+    medicine_name = input("Enter medicine name: ")
+    found = False
+    for medicine in medicine_list:
+        if medicine["medicine_name"] == medicine_name:
+            medicine_list.remove(medicine)
+            found = True
+    if found is False:
+        print("medicine not found")
+
