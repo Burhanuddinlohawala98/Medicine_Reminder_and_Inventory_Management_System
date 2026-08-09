@@ -19,3 +19,9 @@
 # - alerts.py
 # - consumption.py
 # - report.py
+
+import display
+
+print("WELCOME TO MEDICINE REMINDER AND INVENTORY MANAGEMENT SYSTEM")
+
+display.start()
