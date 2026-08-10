@@ -117,28 +117,28 @@ def view_medicine(current_user):
                     print("-" * 30)
 
 
-    def search_medicine(current_user):
-        medicine_name = input('Enter medicine name: ')
-        medicine_found = False
-        with open(file_name,'r') as profiles:
-                for profile in profiles:
-                    profile = profile.strip()
-                    medicine_info = profile.split("|")
-                    user_profiles = medicine_info[0].split(',')
-                    current_user_medicines_list = medicine_info[1].split(';')
-                    if current_user == user_profiles[0]:
-                        for medicine in current_user_medicines_list:
-                            individual_medicine = medicine.split(",")
-                            if medicine_name == individual_medicine[0]:
-                                print('medicine found successfully!')
-                                print("Medicine Name:", individual_medicine[0])
-                                print("Quantity:", individual_medicine[1])
-                                print("Expiry Date:", individual_medicine[2])
-                                print("Timings:", individual_medicine[3].split('/'))
-                                print("Dosage Per Day:", individual_medicine[4])
-                                medicine_found = True
-                                break
+def search_medicine(current_user):
+    medicine_name = input('Enter medicine name: ')
+    medicine_found = False
+    with open(file_name,'r') as profiles:
+        for profile in profiles:
+            profile = profile.strip()
+            medicine_info = profile.split("|")
+            user_profiles = medicine_info[0].split(',')
+            current_user_medicines_list = medicine_info[1].split(';')
+            if current_user == user_profiles[0]:
+                for medicine in current_user_medicines_list:
+                    individual_medicine = medicine.split(",")
+                    if medicine_name == individual_medicine[0]:
+                        print('medicine found successfully!')
+                        print("Medicine Name:", individual_medicine[0])
+                        print("Quantity:", individual_medicine[1])
+                        print("Expiry Date:", individual_medicine[2])
+                        print("Timings:", individual_medicine[3].split('/'))
+                        print("Dosage Per Day:", individual_medicine[4])
+                        medicine_found = True
+                        break
 
-        if not medicine_found:
-            print('Medicine not found!')
+    if not medicine_found:
+        print('Medicine not found!')
                     
