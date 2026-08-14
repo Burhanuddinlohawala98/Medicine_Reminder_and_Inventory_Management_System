@@ -21,7 +21,7 @@ def log_consumption(current_user):
             profile = profile.strip()
             user_profile = profile.split("|")
             user_info = user_profile[0].split(",")
-            if current_user == user_profile[0]:
+            if current_user == user_info[0]:
 
                 medicine_info = user_profile[1]
                 medicines = medicine_info.split(';')
