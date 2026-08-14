@@ -29,6 +29,7 @@ def load_accounts():
     with open(FILE_NAME, "r") as file:
         for line in file:
             line = line.strip()
+            line = line.split("|")[0]
             if line != "":
                 parts = line.split(",")
                 if len(parts) == 5:
