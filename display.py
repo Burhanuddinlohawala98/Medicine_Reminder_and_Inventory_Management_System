@@ -19,7 +19,8 @@
 
 import user_profile
 import medicines
-
+import consumption
+import alert
 def display_menu(current_user):
     while True:
         print('===MENU===')
@@ -31,7 +32,7 @@ def display_menu(current_user):
         print("6. consumption log")
         print("7. Exit menu")
         print("8. Exit")
-        choice = int(input("Enter choice between 1 to 8: "))
+        choice = int(input("Enter choice between 1 to 8: ").strip())
         if choice == 1:
             print('VIEW MEDICINE')
             medicines.view_medicine(current_user)
@@ -45,6 +46,12 @@ def display_menu(current_user):
         elif choice == 4:
             print('SEARCH MEDICINE')
             medicines.search_medicine(current_user)
+        elif choice == 5:
+            print("UPDATE MEDICINE")
+            medicines.update_medicine(current_user)
+        elif choice == 6:
+            print('MEDICINE CONSUMPTION DETAILS')
+            consumption.log_consumption(current_user)
         elif choice == 7:
             print('LOGGING OUT....')
             return 'logout'
@@ -55,6 +62,7 @@ def start():
     while True:
         current_user = user_profile.user_profile_menu()
         if current_user:
+            alert.show_alerts(current_user)
             result = display_menu(current_user)
             if result == "logout":
                 print("RETURNING TO THE LOGIN")
