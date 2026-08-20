@@ -17,8 +17,7 @@
 # - Exit menu
 # - Exit program
 
-<<<<<<< HEAD
-import user_profile
+import user_profiles
 import medicines
 import consumption
 import alert
@@ -73,8 +72,6 @@ def start():
         else:
             print("GOODBYE")
             break
-=======
 
 
 
->>>>>>> origin/Bibin_user_profile_file
