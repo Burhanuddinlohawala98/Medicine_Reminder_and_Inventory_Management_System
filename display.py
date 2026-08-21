@@ -60,7 +60,7 @@ def display_menu(current_user):
 
 def start():
     while True:
-        current_user = user_profile.user_profile_menu()
+        current_user = user_profiles.user_profile_menu()
         if current_user:
             alert.show_alerts(current_user)
             result = display_menu(current_user)
