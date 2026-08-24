@@ -17,13 +17,13 @@
 # - Exit menu
 # - Exit program
 
-import user_profile
+import user_profiles
 import medicines
 import consumption
 import alert
 def display_menu(current_user):
     while True:
-        print('===MENU===')
+        print('======MENU=======')
         print("1. View medicines")
         print("2. Add medicine")
         print("3. Delete medicine")
@@ -32,7 +32,14 @@ def display_menu(current_user):
         print("6. consumption log")
         print("7. Exit menu")
         print("8. Exit")
-        choice = int(input("Enter choice between 1 to 8: ").strip())
+        print("===================")
+
+        try:
+            choice = int(input("Enter choice between 1 to 8: ").strip())
+        except ValueError:
+            print("Invalid choice! Please enter number between 1 to 8")
+            continue
+        
         if choice == 1:
             print('VIEW MEDICINE')
             medicines.view_medicine(current_user)
@@ -60,7 +67,7 @@ def display_menu(current_user):
 
 def start():
     while True:
-        current_user = user_profile.user_profile_menu()
+        current_user = user_profiles.user_profile_menu()
         if current_user:
             alert.show_alerts(current_user)
             result = display_menu(current_user)
