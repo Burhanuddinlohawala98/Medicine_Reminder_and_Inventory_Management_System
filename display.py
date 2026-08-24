@@ -23,7 +23,7 @@ import consumption
 import alert
 def display_menu(current_user):
     while True:
-        print('===MENU===')
+        print('======MENU=======')
         print("1. View medicines")
         print("2. Add medicine")
         print("3. Delete medicine")
@@ -32,7 +32,14 @@ def display_menu(current_user):
         print("6. consumption log")
         print("7. Exit menu")
         print("8. Exit")
-        choice = int(input("Enter choice between 1 to 8: ").strip())
+        print("===================")
+
+        try:
+            choice = int(input("Enter choice between 1 to 8: ").strip())
+        except ValueError:
+            print("Invalid choice! Please enter number between 1 to 8")
+            continue
+        
         if choice == 1:
             print('VIEW MEDICINE')
             medicines.view_medicine(current_user)
@@ -75,3 +82,4 @@ def start():
 
 
 
+            break
