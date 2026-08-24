@@ -20,8 +20,7 @@
 # - consumption.py
 # - report.py
 
-import display
+impimport display
 
-print("WELCOME TO MEDICINE REMINDER AND INVENTORY MANAGEMENT SYSTEM")
-
-display.start()
+if __name__ == "__main__":
+    display.start())
