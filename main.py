@@ -6,21 +6,14 @@
 
 # Responsibilities:
 # - Display the welcome screen.
-# - Handle user login and profile selection.
-# - Display the main menu.
-# - Call functions from other modules.
+# - Call function from display module.
 # - Save data before exiting the program.
 
 # Modules Used:
-# - user_profile.py
-# - storage.py
-# - medicine.py
 # - display.py
-# - alerts.py
-# - consumption.py
-# - report.py
 
-impimport display
+
+import display
 
 if __name__ == "__main__":
-    display.start())
+    display.start()
