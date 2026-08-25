@@ -87,6 +87,10 @@ def check_user_expired_medicine(current_user):
     print("EXPIRY ALERT:")
     medicines = parse_user_medicines(current_user)
     
+    if not medicines:
+        print("Alert: No medicines found for this user.")
+        return
+
     for med in medicines:
         status = expiry_status(med["exp_date"])
         print(f"{med['name']} | Expiry Date: {med['exp_date']} | Expiry Status: {status}")
@@ -95,11 +99,15 @@ def low_stock_medicine(current_user, threshold=5):
     print("LOW STOCK ALERT:")
     medicines = parse_user_medicines(current_user)
     
+    if not medicines:
+        print("Alert: No medicines found for this user.")
+        return
+
     for med in medicines:
         if med["quantity"] <= threshold:
             print(f"ALERT! {med['name']} has low stock! Quantity left: {med['quantity']}")
         else:
-            print(f'{med['name']} has enough stock! Quantity left: {med["quantity"]}')
+            print(f"{med['name']} has enough stock! Quantity left: {med['quantity']}")
 
 def get_current_time_slot():
     current_hour = datetime.now().hour
@@ -127,11 +135,27 @@ def timely_medicine_reminder(current_user):
     
     medicines = parse_user_medicines(current_user)
     
+    if not medicines:
+        print("Alert: No medicines found for this user.")
+        return
+
+    reminder_found = False
     for med in medicines:
         if current_slot in med["timings"]:
             print(f"It is time to take {med['name']}")
+            reminder_found = True
+            
+    if not reminder_found:
+        print("No medicine reminders for the current time slot.")
 
 def show_alerts(current_user):
+    # Retrieve user's medicines first
+    medicines = parse_user_medicines(current_user)
+
+    # If no medicines are found, stop execution immediately without printing anything
+    if not medicines:
+        return
+
     print(f"Alerts for User: {current_user}")
     print("----------------------------------------")
     timely_medicine_reminder(current_user)
